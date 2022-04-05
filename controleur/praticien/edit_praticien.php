@@ -2,13 +2,13 @@
 
 
 //edition
-if (!is_null($praticienId)) {
+ /*if (!is_null($praticienId)) {
     $result = PDO::doSelect("praticien", ["id" => $praticienId]);
     if (!$praticien = $result->fetch()) {
         exit();
     }
 
-}
+} */
     // traitement du formulaire
 if (!empty($_POST)) {
     $champsObligatoires = ["nom"];
@@ -33,9 +33,9 @@ if (!empty($_POST)) {
         "password" => $_POST["password"],
 
     ];
-    $insert=PDO::prepare("INSERT INTO praticien .'$sets'.");
+getpdo();
+    $insert=$db->prepare("INSERT INTO praticien .'$sets'.");
     $insert->execute();
-    foreach ($insert as $row) {
-        print_r($row);
-    }
+    $result = $insert->fetchAll();
+
 }

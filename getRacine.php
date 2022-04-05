@@ -5,4 +5,15 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-$racine = dirname(__FILE__);
+
+
+//$racine = dirname(__FILE__);
+
+define("ROOT", __DIR__ );
+
+define("CONTROL_DIR", ROOT . '/controleur/' );
+define("CONTROL_PATIENT", CONTROL_DIR . 'patient/' );
+
+define("MODELE_DIR", ROOT . '/modele/');
+define("VUE_DIR" , ROOT . '/vue/');
+

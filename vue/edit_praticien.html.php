@@ -3,6 +3,8 @@
 $titre = "Nouveau praticien";
 include "entete.html.php";
 include "pied.html.php";
+include "bd.inc.php";
+include "controleur/praticien/edit_praticien.php";
 
 ?>
 <!DOCTYPE html>
@@ -16,7 +18,7 @@ include "pied.html.php";
 <body>
 
 
-<form action="" method="post"></form>
+<form action="" method="post">
 <div>
 
     <h2>Nouveau Praticien : </h2>

@@ -3,7 +3,7 @@
 $titre = "Login";
 include "entete.html.php";
 include "pied.html.php";
-include "../modele/authentification.inc.php"
+include MODELE_DIR . "authentification.inc.php"
 ?>
 <!DOCTYPE html>
 

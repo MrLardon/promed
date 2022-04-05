@@ -1,8 +1,9 @@
 <?php
 include "getRacine.php";
-include "$racine/controleur/controleurPrincipal.php";
-include_once "$racine/modele/authentification.inc.php"; // pour pouvoir utiliser isLoggedOn()
 
+include CONTROL_DIR . "controleurPrincipal.php";
+include_once MODELE_DIR . "authentification.inc.php"; // pour pouvoir utiliser isLoggedOn()
+include_once VUE_DIR . "vueAuthentification.html.php";
 if (isset($_GET["action"])) {
     $action = $_GET["action"];
 } else {
@@ -10,4 +11,7 @@ if (isset($_GET["action"])) {
 }
 
 $fichier = controleurPrincipal($action);
-include "$racine/controleur/$fichier";
+
+//die( CONTROL_DIR . $fichier );
+
+include CONTROL_DIR . "$fichier";

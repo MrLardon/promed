@@ -1,29 +1,18 @@
 <?php
+include VUE_DIR . "edit_patient.html.php";
 
 
-//edition
-if (!is_null($patientId)) {
-    $result = PDO::doSelect("patient", ["id" => $patientId]);
-    if (!$patient = $result->fetch()) {
-        $router->loadRoute404();
-        exit();
-    }
-    $patient->deleteUrl = $router->getUrl("patientDelete", $patient->nom, $patient->id);
 
-    //sous-titre
-    $twig->addVar("nom", txt("Edition d'un patient") . " : " . $patient->nom);
-
-    $twig->addVar("editPatient", $patient);
-}
     // traitement du formulaire
 if (!empty($_POST)) {
     $champsObligatoires = ["nom"];
     foreach ($champsObligatoires as $champ) {
-        if (!isser($POST[$champ]) ||$_POST[$champ] ==="") {
-            $session->error(txt("Veuillez vérifier les champs obligatoires"));
+        if (!isser($_POST[$champ]) ||$_POST[$champ] ==="") {
+            $champsObligatoires->error(txt("Veuillez vérifier les champs obligatoires"));
             break;
         }
     }
+
 
     $sets =[
         "nom" => $_POST["nom"],
