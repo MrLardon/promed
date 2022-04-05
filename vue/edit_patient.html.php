@@ -2,6 +2,7 @@
 
 $titre = "Nouveau patient";
 include "entete.html.php";
+include "../modele/edit_patient.inc.php";
 include "pied.html.php";
 include "../controleur/patient/edit_patient.php";
 ?>
@@ -9,7 +10,7 @@ include "../controleur/patient/edit_patient.php";
 
 <head>
 
-    <link rel="stylesheet" href="/css/style.css">
+    <link rel="stylesheet" href="/assets/css/style.css">
 
 </head>
 

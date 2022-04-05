@@ -9,7 +9,7 @@ include "pied.html.php";
 
 <head>
 
-    <link rel="stylesheet" href="/css/style.css">
+    <link rel="stylesheet" href="/assets/css/style.css">
 
 </head>
 
