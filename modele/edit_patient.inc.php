@@ -18,11 +18,12 @@ $sets =[
 
 ];
 
-if (isset($_POST)){
+try {
+    $inst = new PDO("mysql:host=$serveur;port=$port;dbname=$bd", $login, $mdp,);
+    $inst->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+    $req ="INSERT INTO patient (*) VALUES($sets)";
+    $inst ->exec($req);
 
- $insert=PDO::prepare("INSERT INTO patient .'$sets'.");
- $insert->execute($sets);
- foreach ($insert as $row) {
-     print_r($row);
- }
+} catch (PDOException $e) {
+    die('Erreur : ' . $e->getMessage());
 }

@@ -17,3 +17,4 @@ define("CONTROL_PATIENT", CONTROL_DIR . 'patient/' );
 define("MODELE_DIR", ROOT . '/modele/');
 define("VUE_DIR" , ROOT . '/vue/');
 
+define("ASSETS_DIR", ROOT .'/assets/');

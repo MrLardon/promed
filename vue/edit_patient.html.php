@@ -2,9 +2,9 @@
 
 $titre = "Nouveau patient";
 include "entete.html.php";
-include "../modele/edit_patient.inc.php";
+include MODELE_DIR."edit_patient.inc.php";
 include "pied.html.php";
-include "../controleur/patient/edit_patient.php";
+include CONTROL_PATIENT."edit_patient.php";
 ?>
 <!DOCTYPE html>
 

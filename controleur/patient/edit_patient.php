@@ -1,17 +1,6 @@
 <?php
-include VUE_DIR . "edit_patient.html.php";
+include  VUE_DIR. "/edit_patient.html.php";
 
-
-
-    // traitement du formulaire
-if (!empty($_POST)) {
-    $champsObligatoires = ["nom"];
-    foreach ($champsObligatoires as $champ) {
-        if (!isser($_POST[$champ]) ||$_POST[$champ] ==="") {
-            $champsObligatoires->error(txt("Veuillez vérifier les champs obligatoires"));
-            break;
-        }
-    }
 
 
     $sets =[
@@ -26,7 +15,22 @@ if (!empty($_POST)) {
         "code_postal" => $_POST["code_postal"],
         "ville" => $_POST["ville"],
         "password" => $_POST["password"],
+        "nvx_client" =>$_POST["nvx_client"],
         //nvx_client ?
     ];
 
+$login = 'dev';
+$mdp = 'SuperUser@sio56';
+$bd = 'gr1';
+$serveur = '172.16.120.2';
+$port = "3307";
+
+try {
+    $inst = new PDO("mysql:host=$serveur;port=$port;dbname=$bd", $login, $mdp,);
+    $inst->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+    $req ="INSERT INTO patient (*) VALUES($sets)";
+    $inst ->exec($req);
+
+} catch (PDOException $e) {
+    die('Erreur : ' . $e->getMessage());
 }
